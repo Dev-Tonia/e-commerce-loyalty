@@ -29,4 +29,36 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // A user has many purchases
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+    }
+
+    // A user has many achievements through the pivot table
+    public function achievements()
+    {
+        return $this->belongsToMany(Achievement::class, 'user_achievements')
+            ->withTimestamps();
+    }
+
+    // A user has many badges through the pivot table
+    public function badges()
+    {
+        return $this->belongsToMany(Badge::class, 'user_badges')
+            ->withTimestamps();
+    }
+
+    // Helper: count total purchases
+    public function totalPurchases()
+    {
+        return $this->purchases()->count();
+    }
+
+    // Helper: count total unlocked achievements
+    public function totalUnlockedAchievements()
+    {
+        return $this->achievements()->count();
+    }
 }
