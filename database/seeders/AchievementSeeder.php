@@ -23,5 +23,6 @@ class AchievementSeeder extends Seeder
                 $achievement                        // create with these values
             );
         }
+        echo "Achievement created successfully\n";
     }
 }

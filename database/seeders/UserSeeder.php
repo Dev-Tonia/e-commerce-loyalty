@@ -39,6 +39,6 @@ class UserSeeder extends Seeder
             );
         }
 
-        echo "✅ Users created successfully\n";
+        echo "Users created successfully\n";
     }
 }
