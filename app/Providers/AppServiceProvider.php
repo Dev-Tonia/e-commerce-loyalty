@@ -2,6 +2,13 @@
 
 namespace App\Providers;
 
+use App\Events\AchievementUnlocked;
+use App\Events\BadgeUnlocked;
+use App\Events\PurchaseCompleted;
+use App\Listeners\CheckAchievements;
+use App\Listeners\CheckBadges;
+use App\Listeners\ProcessCashback;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+
     }
 }

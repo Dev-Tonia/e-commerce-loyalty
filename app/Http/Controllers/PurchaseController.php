@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PurchaseCompleted;
 use App\Http\Requests\StorePurchaseRequest;
 use App\Http\Resources\PurchaseResource;
 use App\Models\Purchase;
@@ -22,6 +23,7 @@ class PurchaseController extends Controller
             'amount'    => $request->amount,
         ]);
 
+        PurchaseCompleted::dispatch($user, $purchase);
 
         return $this->successResponse(
             [
